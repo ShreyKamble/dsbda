@@ -1,0 +1,75 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+pd.read_csv('Iris.csv')
+
+df=pd.read_csv('Iris.csv')
+
+df.mean()
+
+df.loc[:,'SepalLengthCm'].mean()
+
+df.mean(axis=1)[0:4]
+
+df.mean(axis=1)[0:4]
+
+df.median()
+
+df.loc[:,'SepalLengthCm'].median()
+
+df.median(axis=1)[0:4]
+
+df.mode()
+
+df.loc[:,'SepalLengthCm'].mode()
+
+df.mode(axis=1)[0:4]
+
+df.min()
+
+df.loc[:,'SepalLengthCm'].min(skipna = False)
+
+df.max()
+
+df.loc[:,'SepalLengthCm'].max(skipna = False)
+
+df.std()
+
+df.loc[:,'SepalLengthCm'].std()
+
+df.std(axis=1)[0:4]
+
+df.groupby(['Id'])['SepalLengthCm'].mean()
+
+df_u=df.rename(columns= {'SepalLengthCm)':'SepalWidthCm'},inplace=False)
+
+(df_u.groupby(['PetalLengthCm']).SepalWidthCm.mean())
+
+from sklearn import preprocessing
+enc = preprocessing.OneHotEncoder()
+enc_df = pd.DataFrame(enc.fit_transform(df[['Id']]).toarray())
+enc_df
+
+df_encode =df_u.join(enc_df)
+df_encode
+
+iris=pd.read_csv("iris.csv")
+
+import pandas as pd
+
+irisSet = (iris['Species']== 'Iris-setosa')
+
+print('Iris-setosa')
+print(iris[irisSet].describe())
+
+irisVer = (iris['Species']== 'Iris-versicolor')
+
+print('Iris-versicolor')
+print(iris[irisVer].describe())
+
+irisVir = (iris['Species']== 'Iris-virginica')
+
+print('Iris-virginica')
+print(iris[irisVir].describe())
